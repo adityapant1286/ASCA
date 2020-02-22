@@ -1,0 +1,75 @@
+<!-- <div style="height: 100vh;"> -->
+<mat-toolbar class="mat-elevation-z3 pt-2">
+    <!-- App Icon -->
+    <span>
+        <mat-icon fontSet="material-icons-round">sync_alt</mat-icon>
+    </span>
+    <!-- Spacer -->
+    <span class="spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md="true">
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <!-- File input -->
+        <mat-form-field class="pr-3">
+            <input matInput placeholder="Choose Config File" [(ngModel)]="selectedConfigFile" />
+            <a matSuffix (click)="configFileInput.click()">
+                <mat-icon fontSet="material-icons-round">attach_file</mat-icon>
+            </a>
+            <mat-hint>
+                <div>
+                    <input hidden (change)="onConfigFileSelected()" #configFileInput type="file" id="fileConfig">
+                </div>
+            </mat-hint>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="mx-1">
+            <mat-icon fontSet="material-icons-round" class="mr-1">settings</mat-icon>
+            Load
+        </button>
+        <button mat-raised-button color="primary" class="mx-1">
+            <mat-icon fontSet="material-icons-round" class="mr-1">ballot</mat-icon>
+            Compare Panel
+        </button>
+    </div>
+
+    <div fxShow="true" fxHide.gt-sm="true">
+        <div (click)="sidenav.toggle()" class="icon-style">
+            <mat-icon>menu</mat-icon>
+        </div>
+    </div>
+</mat-toolbar>
+
+<!-- <mat-sidenav-container fxFlexFill> -->
+<mat-sidenav #sidenav fxLayout="column">
+    <div fxLayout="row-reverse">
+        <div (click)="sidenav.toggle()" class="icon-style p-3">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <div fxLayout="row-reverse">
+        <mat-form-field class="pr-3 py-2">
+            <input matInput placeholder="Choose Config File" [(ngModel)]="selectedConfigFile" />
+            <a matSuffix (click)="configFileInput.click()" >
+                <mat-icon>attach_file</mat-icon>
+            </a>
+            <mat-hint>
+                <div>
+                    <input hidden (change)="onConfigFileSelected()" #configFileInput type="file" id="fileConfig">
+                </div>
+            </mat-hint>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row-reverse" class="pr-3 pt-2 pb-2">
+        <button mat-raised-button color="primary" class="px-2">
+            <mat-icon fontSet="material-icons-round">settings</mat-icon>
+            Load
+        </button>
+    </div>
+    <div fxLayout="row-reverse" class="pr-3 pt-2 pb-3">
+        <button mat-raised-button color="primary" class="px-2">
+            <mat-icon fontSet="material-icons-round">ballot</mat-icon>
+            Compare Panel
+        </button>
+    </div>
+</mat-sidenav>
+<!-- </mat-sidenav-container> -->
+<!-- </div> -->

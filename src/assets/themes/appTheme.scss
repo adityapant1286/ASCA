@@ -1,0 +1,173 @@
+@import '~@angular/material/theming';
+
+$ubuntu-typography: mat-typography-config($font-family: 'Ubuntu');
+$noto-sans-typography: mat-typography-config($font-family: 'Noto Sans');
+$nunito-typography: mat-typography-config($font-family: 'Nunito');
+$quicksand-typography: mat-typography-config($font-family: 'Quicksand');
+$raleway-typography: mat-typography-config($font-family: 'Raleway');
+$roboto-mono-typography: mat-typography-config($font-family: 'Roboto Mono');
+$roboto-typography: mat-typography-config($font-family: 'Roboto');
+$rubik-typography: mat-typography-config($font-family: 'Rubik');
+$segoe-ui-typography: mat-typography-config($font-family: 'Segoe UI');
+$helvetica-neue-typography: mat-typography-config($font-family: 'Helvetica Neue');
+//, Arial, sans-serif
+@include mat-core($ubuntu-typography);
+
+$bluegraylight: (
+    50 : #ECEFF1,
+    100 : #CFD8DC,
+    200 : #B0BEC5,
+    300 : #90A4AE,
+    400 : #78909C,
+    500 : #607D8B,
+    600 : #546E7A,
+    700 : #455A64,
+    800 : #37474F,
+    900 : #263238,
+    A100 : #aff3e6,
+    A200 : #82e8d4,
+    A400 : #4ed8bd,
+    A700 : #18bc9c,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$bluelight: (
+    50 : #E3F2FD,
+    100 : #BBDEFB,
+    200 : #90CAF9,
+    300 : #64B5F6,
+    400 : #42A5F5,
+    // 500 : #2196F3,2979FF
+    500 : #2979FF,
+    600 : #1E88E5,
+    700 : #1976D2,
+    800 : #1565C0,
+    900 : #0D47A1,
+    A100 : #A7FFEB,
+    A200 : #64FFDA,
+    A400 : #1DE9B6,
+    A700 : #00BFA5,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+
+@function app-light-theme-foreground($color) {
+    @return (
+        base:              $color,
+        divider:           $white-12-opacity,
+        dividers:          $white-12-opacity,
+        disabled:          rgba($color, 0.38),
+        disabled-button:   rgba($color, 0.38),
+        disabled-text:     rgba($color, 0.38),
+        hint-text:         rgba($color, 0.38),
+        secondary-text:    rgba($color, 0.54),
+        icon:              rgba($color, 0.54),
+        icons:             rgba($color, 0.54),
+        text:              rgba($color, 0.87),
+        slider-off:        rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38),
+        slider-min:        rgba($color, 0.38)
+    );
+};
+
+// $app-primary: mat-palette($bluegraylight, 500, 200, 900);
+// $app-accent: mat-palette($bluegraylight, A700, A100, A400);
+$app-primary: mat-palette($bluelight, 500, 200, 900);
+// $app-accent: mat-palette($bluelight, A700, A100, A400);
+$app-accent: mat-palette($bluelight, A400, A100, A200);
+$app-warn: mat-palette($mat-amber, 700, 200, 800);
+
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+$light-theme-foreground: app-light-theme-foreground(#375a7f);
+
+$my-app-theme: map-merge($app-theme, (foreground: $light-theme-foreground));
+
+@include angular-material-theme($my-app-theme);
+
+// $bluegraydark: (
+//     50 : #e7ebf0,
+//     100 : #c3ced9,
+//     200 : #9badbf,
+//     300 : #738ca5,
+//     400 : #557392,
+//     500 : #375a7f,
+//     600 : #315277,
+//     700 : #2a486c,
+//     800 : #233f62,
+//     900 : #162e4f,
+//     A100 : #aff3e6,
+//     A200 : #82e8d4,
+//     A400 : #4ed8bd,
+//     A700 : #18bc9c,
+//     contrast: (
+//         50 : #000000,
+//         100 : #000000,
+//         200 : #000000,
+//         300 : #000000,
+//         400 : #ffffff,
+//         500 : #ffffff,
+//         600 : #ffffff,
+//         700 : #ffffff,
+//         800 : #ffffff,
+//         900 : #ffffff,
+//         A100 : #000000,
+//         A200 : #000000,
+//         A400 : #000000,
+//         A700 : #ffffff,
+//     )
+// );
+
+// $dark-primary: mat-palette($bluegraydark, 500, 200, 900);
+// $dark-accent: mat-palette($bluegraydark, A700, A100, A400);
+// $dark-warn: mat-palette($mat-amber, 700, 200, 800);
+
+// $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+// .app-dark-theme {
+//     @include angular-material-theme($dark-theme);
+// }
+
+// .app-dark-theme {
+//     background-color: #222222;
+// }
+
+html, body { height: 100%; }
+body { 
+    margin: 0;
+    background-color: #2979FF;
+    color: #375a7f;
+    // color: #264363;
+}
+
+// "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
