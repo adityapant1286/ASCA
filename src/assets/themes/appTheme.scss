@@ -59,9 +59,9 @@ $bluelight: (
     800 : #1565C0,
     900 : #0D47A1,
     A100 : #A7FFEB,
-    A200 : #64FFDA,
-    A400 : #1DE9B6,
-    A700 : #00BFA5,
+    A200 : #65feff,
+    A400 : #03cad5,
+    A700 : #0099a4,
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -104,7 +104,7 @@ $bluelight: (
 // $app-accent: mat-palette($bluegraylight, A700, A100, A400);
 $app-primary: mat-palette($bluelight, 500, 200, 900);
 // $app-accent: mat-palette($bluelight, A700, A100, A400);
-$app-accent: mat-palette($bluelight, A400, A100, A200);
+$app-accent: mat-palette($bluelight, A400, A200, A700);
 $app-warn: mat-palette($mat-amber, 700, 200, 800);
 
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);

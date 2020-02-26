@@ -1,5 +1,5 @@
 <!-- <div style="height: 100vh;"> -->
-<mat-toolbar class="mat-elevation-z3 pt-2">
+<mat-toolbar class="mat-elevation-z3 pt-2 background-light">
     <!-- App Icon -->
     <span>
         <mat-icon fontSet="material-icons-round">sync_alt</mat-icon>
@@ -17,15 +17,12 @@
             </a>
             <mat-hint>
                 <div>
-                    <input hidden (change)="onConfigFileSelected()" #configFileInput type="file" id="fileConfig">
+                    <input hidden (change)="onConfigFileSelected()" #configFileInput type="file" id="fileConfig"
+                        accept="application/json">
                 </div>
             </mat-hint>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="mx-1">
-            <mat-icon fontSet="material-icons-round" class="mr-1">settings</mat-icon>
-            Load
-        </button>
-        <button mat-raised-button color="primary" class="mx-1">
+        <button mat-raised-button color="primary" class="mx-1" (click)="compareDrawer.toggle()">
             <mat-icon fontSet="material-icons-round" class="mr-1">ballot</mat-icon>
             Compare Panel
         </button>
@@ -39,33 +36,28 @@
 </mat-toolbar>
 
 <!-- <mat-sidenav-container fxFlexFill> -->
-<mat-sidenav #sidenav fxLayout="column">
+<mat-sidenav #sidenav fxLayout="column" mode="over" class="background-light sidenav-style">
     <div fxLayout="row-reverse">
         <div (click)="sidenav.toggle()" class="icon-style p-3">
             <mat-icon>close</mat-icon>
         </div>
     </div>
     <div fxLayout="row-reverse">
-        <mat-form-field class="pr-3 py-2">
+        <mat-form-field class="pr-4 py-2">
             <input matInput placeholder="Choose Config File" [(ngModel)]="selectedConfigFile" />
-            <a matSuffix (click)="configFileInput.click()" >
+            <a matSuffix (click)="configFileInput.click()">
                 <mat-icon>attach_file</mat-icon>
             </a>
             <mat-hint>
                 <div>
-                    <input hidden (change)="onConfigFileSelected()" #configFileInput type="file" id="fileConfig">
+                    <input hidden (change)="onConfigFileSelected()" #configFileInput type="file" id="fileConfig"
+                        accept="application/json">
                 </div>
             </mat-hint>
         </mat-form-field>
     </div>
-    <div fxLayout="row-reverse" class="pr-3 pt-2 pb-2">
-        <button mat-raised-button color="primary" class="px-2">
-            <mat-icon fontSet="material-icons-round">settings</mat-icon>
-            Load
-        </button>
-    </div>
-    <div fxLayout="row-reverse" class="pr-3 pt-2 pb-3">
-        <button mat-raised-button color="primary" class="px-2">
+    <div fxLayout="row-reverse" class="pr-4 pt-2 pb-2">
+        <button mat-raised-button color="primary" class="px-2" (click)="compareDrawer.toggle()">
             <mat-icon fontSet="material-icons-round">ballot</mat-icon>
             Compare Panel
         </button>
@@ -73,3 +65,42 @@
 </mat-sidenav>
 <!-- </mat-sidenav-container> -->
 <!-- </div> -->
+
+<mat-sidenav #compareDrawer fxLayout="column" mode="slide" autoFocus="false" 
+            class="background-dark sidenav-style"
+    (opened)="onCompareDrawerOpened()" (closed)="onCompareDrawerClosed()">
+    
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <!-- Compare button -->
+        <div class="px-3">
+            <button mat-raised-button color="accent" class="px-4" 
+                    (click)="onCompare()">
+                <mat-icon fontSet="material-icons-round">compare_arrows</mat-icon>
+                Compare
+            </button>
+        </div>
+        <!-- close icon -->
+        <div (click)="compareDrawer.toggle()" class="icon-style p-3">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    
+    <!-- Instance card panel -->
+    <div class="px-3">
+        <!-- id, name, username, baseUrl, checked -->
+        <mat-card *ngFor="let instance of instances" 
+                matTooltipClass="custom-tooltip" 
+                matTooltip="{{instance.baseUrl}}"
+                matTooltipPosition="above" class="mb-3">
+            <!-- <mat-card *ngFor="let instance of instances"> -->
+            <mat-card-header>
+                <mat-card-title fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>{{instance.name}}</div>
+                    <mat-slide-toggle color="accent" (change)="checkboxToggle($event.checked, instance.name)" checked="{{instance.checked}}"></mat-slide-toggle>
+                </mat-card-title>
+                <mat-card-subtitle>{{instance.username}}</mat-card-subtitle>
+            </mat-card-header>
+            <!-- <mat-card-content></mat-card-content> -->
+        </mat-card>
+    </div>
+</mat-sidenav>

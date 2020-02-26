@@ -1349,6 +1349,38 @@
   height: 74px !important;
 }
 
+.mat-card-header-text {
+  margin-left: 0.2em !important;
+  width: 100%;
+}
+
+// .custom-tooltip {
+//   color: #FFFFFF;
+//   // font-size: 14px;
+//   background-color: #7196bd;
+// }
+
+.custom-tooltip {
+  background-color: #7196bd;
+  font-size: small;
+  border-radius: 8px;
+  padding: 0.8em 1.2em 0.8em 1.2em !important;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.mat-card {
+  border-radius: 8px !important;
+}
+
+.mat-raised-button.mat-accent {
+  color: #ffffff !important;
+}
+
+*:focus {
+  outline: none;
+}
+
 // .mat-toolbar-single-row {
 //     padding-top: 0.8em !important;
 // }

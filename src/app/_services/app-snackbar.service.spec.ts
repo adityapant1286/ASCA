@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AppDaoService } from './app-dao.service';
+import { AppSnackbarService } from './app-snackbar.service';
 
-describe('AppDaoService', () => {
-  let service: AppDaoService;
+describe('AppSnackbarService', () => {
+  let service: AppSnackbarService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AppDaoService);
+    service = TestBed.inject(AppSnackbarService);
   });
 
   it('should be created', () => {

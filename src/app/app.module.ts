@@ -19,6 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { FlexLayoutModule, FlexModule, GridModule } from '@angular/flex-layout';
 import { SnackbarModule } from 'ngx-snackbar';
@@ -52,6 +54,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    MatTooltipModule,
+    MatSlideToggleModule,
     SnackbarModule.forRoot()
     ],
     // entryComponents: [
