@@ -27,7 +27,7 @@
     "better-sqlite3": "^5.4.3",
     "better-sqlite3-helper": "^2.2.1",
     "bluebird": "^3.7.2",
-    "jsonata": "^1.8.1",
+    "jsonata": "^1.8.7",
     "lodash": "^4.17.21",
     "ngx-snackbar": "^2.0.1",
     "rxjs": "~6.5.4",
